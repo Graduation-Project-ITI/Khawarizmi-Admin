@@ -1,0 +1,50 @@
+.table-container {
+    width: 90%;
+    padding: 8px;
+    border-radius: 10px;
+  }
+  
+  mat-button-toggle {
+      background-color: #146c94;
+      color: #f6f1f1;
+  }
+  
+  mat-button-toggle-group {
+      border: none;
+  }
+  mat-button-toggle:hover {
+      background-color: #1c485c;
+  }
+  
+  .mat-button-toggle-checked {
+      background-color: #1c485c;
+      color: white;
+    }
+  
+  table {
+    background-color: antiquewhite;
+  }
+  
+  .mat-mdc-row:hover .mat-mdc-cell{
+      cursor: pointer;
+      background-color: #146c94;
+      color: #f6f1f1;
+  }
+  
+  hr {
+      background-color: #146c94;
+      font-size: larger;
+  }
+   .course-header {
+      width: 90%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* grid-gap: 20px; */
+  }
+  
+  .course-header h1{
+      color: #146c94;
+      font-weight:bolder;
+      font-size: 3rem;
+  }
+  

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +8,10 @@ import { CardsComponent } from './Components/cards/cards.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { UsersComponent } from './Components/users/users.component';
 import { CoursesComponent } from './Components/courses/courses.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainTabComponent } from './Components/main-tab/main-tab.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonToggleModule, MatButtonToggleGroup } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -14,13 +19,19 @@ import { CoursesComponent } from './Components/courses/courses.component';
     CardsComponent,
     NavbarComponent,
     UsersComponent,
-    CoursesComponent
+    CoursesComponent,
+    MainTabComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatButtonToggleModule,
+    ReactiveFormsModule
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
