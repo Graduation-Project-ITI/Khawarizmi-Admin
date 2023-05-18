@@ -1,27 +1,47 @@
 <section class="courses-section d-flex flex-column align-items-center">
-    <div class="row m-5"></div>
-    
-    <div class="row course-header d-flex justify-content-start">
-        <div>
-        <div class="d-flex justify-content-center">
-            <h1>Courses</h1>
-        </div>
-        <div class="d-flex justify-content-between">
-            <mat-button-toggle-group [formControl]="courseFilterBy" aria-label="course filter">
-                <mat-button-toggle value="top visited" [ngClass]="{'mat-button-toggle-checked': courseFilterBy.value === 'top visited'}">top visited</mat-button-toggle>
-                <mat-button-toggle value="learning" [ngClass]="{'mat-button-toggle-checked': courseFilterBy.value === 'learning'}">learning</mat-button-toggle>
-                <mat-button-toggle value="bookmarked" [ngClass]="{'mat-button-toggle-checked': courseFilterBy.value === 'bookmarked'}">bookmarked</mat-button-toggle>
-            </mat-button-toggle-group>
-            <!-- put search bar here -->
-            <div>search bar</div>
-        </div>
-        </div>
-    </div>
+  <div class="row m-5"></div>
 
+  <div class="row course-header d-flex justify-content-start">
+    <div>
+      <div class="d-flex justify-content-center">
+        <h1>Courses</h1>
+      </div>
+      <div class="d-flex justify-content-between">
+        <mat-button-toggle-group
+          [formControl]="courseFilterBy"
+          aria-label="course filter"
+        >
+          <mat-button-toggle
+            value="normal"
+            [ngClass]="{
+              'mat-button-toggle-checked': courseFilterBy.value === 'normal'
+            }"
+            >Normal</mat-button-toggle
+          >
+          <mat-button-toggle
+            value="topVisited"
+            [ngClass]="{
+              'mat-button-toggle-checked':
+                courseFilterBy.value === 'topVisited'
+            }"
+            >top visited</mat-button-toggle
+          >
+          <mat-button-toggle
+            value="topVoted"
+            [ngClass]="{
+              'mat-button-toggle-checked': courseFilterBy.value === 'topVoted'
+            }"
+            >top voted</mat-button-toggle
+          >
+        </mat-button-toggle-group>
+        <!-- put search bar here -->
+        <div>search bar</div>
+      </div>
+    </div>
+  </div>
 
   <div class="table-container">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
-
       <!-- name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -55,19 +75,25 @@
       <!-- # of lessons Column -->
       <ng-container matColumnDef="numberOfLessons">
         <th mat-header-cell *matHeaderCellDef># of lessons</th>
-        <td mat-cell *matCellDef="let element">{{ element.numberOfLessons }}</td>
-      </ng-container>
-
-      <!-- is published Column -->
-      <ng-container matColumnDef="isPublished">
-        <th mat-header-cell *matHeaderCellDef>is published</th>
-        <td mat-cell *matCellDef="let element">{{ element.isPublished }}</td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.numberOfLessons }}
+        </td>
       </ng-container>
 
       <!-- date Column -->
       <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef>date</th>
         <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+      </ng-container>
+
+      <!-- date Column -->
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Delete</th>
+        <td mat-cell *matCellDef="let element">
+          <button class="btn btn-dark" (click)="deleteCourse(element.id)">
+            delete
+          </button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

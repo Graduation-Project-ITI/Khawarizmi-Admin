@@ -1,5 +1,5 @@
 .table-container {
-  width: 90%;
+  width: 95%;
   padding: 8px;
   border-radius: 10px;
 }
@@ -23,6 +23,18 @@ mat-button-toggle:hover {
 
 table {
   background-color: antiquewhite;
+}
+
+.mat-column-name,
+.mat-column-publisher,
+.mat-column-upVotes,
+.mat-column-downVotes,
+.mat-column-netVotes,
+.mat-column-numberOfLessons,
+.mat-column-date,
+.mat-column-delete
+{
+text-align: center;
 }
 
 .mat-mdc-row:hover .mat-mdc-cell{

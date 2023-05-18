@@ -16,8 +16,12 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    cursor: pointer;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.5);
+}
+
+.cardBox .card:hover {
+    background: #073a52;
+    transition: 0.3ms;
 }
 
 .cardBox .card .numbers {
