@@ -11,6 +11,8 @@ import { CoursesComponent } from './Components/courses/courses.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainTabComponent } from './Components/main-tab/main-tab.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 import { MatButtonToggleModule, MatButtonToggleGroup } from '@angular/material/button-toggle';
 
 @NgModule({
@@ -28,7 +30,8 @@ import { MatButtonToggleModule, MatButtonToggleGroup } from '@angular/material/b
     BrowserAnimationsModule,
     MatTableModule,
     MatButtonToggleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule
     
   ],
   providers: [],
