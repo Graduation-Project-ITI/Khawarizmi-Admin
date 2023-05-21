@@ -13,8 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainTabComponent } from './Components/main-tab/main-tab.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
-import { MatButtonToggleModule, MatButtonToggleGroup } from '@angular/material/button-toggle';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -33,8 +33,8 @@ import { MatButtonToggleModule, MatButtonToggleGroup } from '@angular/material/b
     MatButtonToggleModule,
     ReactiveFormsModule,
     MatPaginatorModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent],

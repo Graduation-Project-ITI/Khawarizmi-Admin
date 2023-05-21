@@ -8,26 +8,30 @@
       </div>
       <div class="d-flex justify-content-between">
         <mat-button-toggle-group
-          [formControl]="orderBy"
-          aria-label="course filter"
+          [formControl]="orderByControl"
+          aria-label="course orders"
+          (click)="changeOrder()"
         >
           <mat-button-toggle
             value="normal"
             [ngClass]="{
-              'mat-button-toggle-checked': orderBy.value === 'normal'
+              'mat-button-toggle-checked': orderByControl.value === 'normal'
             }"
             >Normal</mat-button-toggle
           >
           <mat-button-toggle
             value="topVoted"
             [ngClass]="{
-              'mat-button-toggle-checked': orderBy.value === 'topVoted'
+              'mat-button-toggle-checked': orderByControl.value === 'topVoted'
             }"
             >top voted</mat-button-toggle
           >
         </mat-button-toggle-group>
         <!-- put search bar here -->
-        <div>search bar</div>
+        <div class="d-flex">
+          <input class="form-control" matInput placeholder="Search" [formControl]="searchByControl">
+          <button class="btn btn-dark" (click)="search()">search</button>
+        </div>
       </div>
     </div>
   </div>

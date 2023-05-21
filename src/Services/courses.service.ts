@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CoursesService {
 
-  baseURL = 'https://localhost:7249/api/Course/AdminCourses'
+  baseURL = 'https://localhost:7249/'
 
   constructor(private http:HttpClient) { }
 
@@ -18,6 +18,9 @@ export class CoursesService {
       .set('searchBy',searchBy) 
       .set('orderBy',orderBy) 
     
-    return this.http.get(this.baseURL, {params})
+    return this.http.get(this.baseURL+'api/Course/AdminCourses', {params})
+  }
+  deleteCourse(id: number) {
+    return this.http.delete(this.baseURL+'CoursePage/Delete/'+id)
   }
 }
