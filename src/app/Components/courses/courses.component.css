@@ -22,7 +22,7 @@ mat-button-toggle:hover {
 }
 
 table {
-  background-color: antiquewhite;
+  background-color: var(--color2);
 }
 
 .mat-column-name,
@@ -50,15 +50,15 @@ hr {
   width: 90%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* grid-gap: 20px; */
 }
 
 .paginator-container {
+
 }
 
 mat-paginator {
     border-radius: 20px;
-    background-color: antiquewhite;
+    background-color: var(--color2);
 }
 
 .course-header h1 {
