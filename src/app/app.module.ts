@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,9 @@ import { CoursesComponent } from './Components/courses/courses.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainTabComponent } from './Components/main-tab/main-tab.component';
 import { MatTableModule } from '@angular/material/table';
-import { MatButtonToggleModule, MatButtonToggleGroup } from '@angular/material/button-toggle';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -28,8 +31,10 @@ import { MatButtonToggleModule, MatButtonToggleGroup } from '@angular/material/b
     BrowserAnimationsModule,
     MatTableModule,
     MatButtonToggleModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    HttpClientModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent],
