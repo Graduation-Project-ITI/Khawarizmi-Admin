@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
-import { CoursesService } from 'src/Services/courses.service';
+import { AdminService } from 'src/Services/AdminService/admin.service';
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
@@ -27,10 +27,10 @@ export class CoursesComponent implements OnInit {
   length: number = 0;
   page: PageEvent | null = null;
 
-  constructor(private courseService: CoursesService) {}
+  constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {
-    // get the first chunk of data, store it in data source and update the data length
+    // get the first chunk of data then store it in data source and update the data length
     this.getPage();
   }
 
@@ -52,8 +52,8 @@ export class CoursesComponent implements OnInit {
   }
 
   getPage() {
-    this.courseService
-      .getCourses(
+    this.adminService
+      .getPages(
         this.pageIndex,
         this.pageSize,
         this.searchByControl.value!,
@@ -71,7 +71,7 @@ export class CoursesComponent implements OnInit {
   deleteCourse(id: any) {
     console.log(id);
 
-    this.courseService.deleteCourse(id).subscribe({
+    this.adminService.deleteCourse(id).subscribe({
       next: (res: any) => {
         this.dataSource = this.dataSource.filter((c: any) => c.id != id);
         this.length--;

@@ -1,35 +1,51 @@
 <section class="courses-section d-flex flex-column align-items-center">
-    <div class="row m-5"></div>
-    
-    <div class="row course-header d-flex justify-content-start">
-        <div>
-        <div class="d-flex justify-content-center">
-            <h1>Users</h1>
+  <div class="row m-5"></div>
+
+  <div class="row course-header d-flex justify-content-start">
+    <div>
+      <div class="d-flex justify-content-center">
+        <h1>Users</h1>
+      </div>
+      <div class="d-flex justify-content-between">
+        <mat-button-toggle-group
+          [formControl]="orderByControl"
+          aria-label="course filter"
+        >
+          <mat-button-toggle
+            value="allUsers"
+            [ngClass]="{
+              'mat-button-toggle-checked': orderByControl.value === 'allUsers'
+            }"
+            >All Users</mat-button-toggle
+          >
+          <mat-button-toggle
+            value="topCreators"
+            [ngClass]="{
+              'mat-button-toggle-checked':
+                orderByControl.value === 'topCreators'
+            }"
+            >Top Creators</mat-button-toggle
+          >
+        </mat-button-toggle-group>
+
+        <div class="d-flex">
+          <input
+            class="form-control"
+            matInput
+            placeholder="Search"
+            [formControl]="searchByControl"
+          />
+          <button class="btn btn-dark" (click)="search()">search</button>
         </div>
-        <div class="d-flex justify-content-between">
-            <mat-button-toggle-group [formControl]="userFilteredBy" aria-label="course filter">
-                <mat-button-toggle value="top creators" [ngClass]="{'mat-button-toggle-checked': userFilteredBy.value === 'top creators'}">top creators</mat-button-toggle>
-                <!-- <mat-button-toggle value="learning" [ngClass]="{'mat-button-toggle-checked': userFilteredBy.value === 'learning'}">learning</mat-button-toggle>
-                <mat-button-toggle value="bookmarked" [ngClass]="{'mat-button-toggle-checked': userFilteredBy.value === 'bookmarked'}">bookmarked</mat-button-toggle> -->
-            </mat-button-toggle-group>
-            <!-- put search bar here -->
-            <div>search bar</div>
-        </div>
-        </div>
+      </div>
     </div>
+  </div>
 
   <div class="table-container">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
-
-      <!-- id Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>Id</th>
-        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-      </ng-container>
-
       <!-- name Column -->
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <th mat-header-cell *matHeaderCellDef>User Name</th>
         <td mat-cell *matCellDef="let element">{{ element.name }}</td>
       </ng-container>
 
@@ -41,24 +57,44 @@
 
       <!-- Bookmarks Column -->
       <ng-container matColumnDef="bookmarks">
-        <th mat-header-cell *matHeaderCellDef>Bookmarks</th>
+        <th mat-header-cell *matHeaderCellDef># of Bookmarks</th>
         <td mat-cell *matCellDef="let element">{{ element.bookmarks }}</td>
       </ng-container>
 
       <!-- Learning Column -->
       <ng-container matColumnDef="learning">
-        <th mat-header-cell *matHeaderCellDef>Learning</th>
+        <th mat-header-cell *matHeaderCellDef># of Learning</th>
         <td mat-cell *matCellDef="let element">{{ element.learning }}</td>
       </ng-container>
 
       <!-- Learning Column -->
       <ng-container matColumnDef="removeUser">
         <th mat-header-cell *matHeaderCellDef>Remove User</th>
-        <td mat-cell *matCellDef="let element"><button class="btn btn-dark" (click)="removeUser(element.id)">Remove</button></td>
+        <td mat-cell *matCellDef="let element">
+          <button class="btn btn-dark" (click)="removeUser(element.id)">
+            Remove
+          </button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+
+    <!-- paginator -->
+    <div class="d-flex justify-content-center paginator-container">
+      <mat-paginator
+        #paginator
+        (page)="handlePageEvent($event)"
+        [pageSize]="pageSize"
+        [length]="length"
+        [showFirstLastButtons]="true"
+        [hidePageSize]="true"
+        [pageIndex]="pageIndex"
+        aria-label="Select page"
+      >
+      </mat-paginator>
+
+    </div>
   </div>
 </section>

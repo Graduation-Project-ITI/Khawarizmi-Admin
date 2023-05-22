@@ -17,7 +17,7 @@
             [ngClass]="{
               'mat-button-toggle-checked': orderByControl.value === 'normal'
             }"
-            >Normal</mat-button-toggle
+            >All Courses</mat-button-toggle
           >
           <mat-button-toggle
             value="topVoted"
@@ -27,9 +27,14 @@
             >top voted</mat-button-toggle
           >
         </mat-button-toggle-group>
-        <!-- put search bar here -->
+
         <div class="d-flex">
-          <input class="form-control" matInput placeholder="Search" [formControl]="searchByControl">
+          <input
+            class="form-control"
+            matInput
+            placeholder="Search"
+            [formControl]="searchByControl"
+          />
           <button class="btn btn-dark" (click)="search()">search</button>
         </div>
       </div>
@@ -100,7 +105,6 @@
     <div class="d-flex justify-content-center paginator-container">
       <mat-paginator
         #paginator
-        class="demo-paginator"
         (page)="handlePageEvent($event)"
         [pageSize]="pageSize"
         [length]="length"

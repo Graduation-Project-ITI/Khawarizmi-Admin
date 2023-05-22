@@ -1,7 +1,6 @@
 .table-container {
   width: 95%;
   padding: 8px;
-  /* border-radius: 10px; */
 }
 
 mat-button-toggle {
@@ -50,10 +49,6 @@ hr {
   width: 90%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-}
-
-.paginator-container {
-
 }
 
 mat-paginator {
