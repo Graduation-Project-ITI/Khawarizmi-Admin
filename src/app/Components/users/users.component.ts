@@ -49,7 +49,7 @@ export class UsersComponent implements OnInit {
 
   getPage() {
     this.adminService
-      .getPages(
+      .getUsersPages(
         this.pageIndex,
         this.pageSize,
         this.searchByControl.value!,
@@ -57,6 +57,8 @@ export class UsersComponent implements OnInit {
       )
       .subscribe({
         next: (res: any) => {
+          console.log(res);
+          
           this.dataSource = res.data;
           this.length = res.length;
         },

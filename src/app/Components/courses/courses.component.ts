@@ -53,7 +53,7 @@ export class CoursesComponent implements OnInit {
 
   getPage() {
     this.adminService
-      .getPages(
+      .getCoursesPages(
         this.pageIndex,
         this.pageSize,
         this.searchByControl.value!,

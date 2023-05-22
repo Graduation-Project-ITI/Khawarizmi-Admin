@@ -14,7 +14,7 @@ export class AdminService {
     return ;
   }
 
-  getPages(pageIndex: number, pageSize: number, searchBy: string, orderBy: string) {
+  getCoursesPages(pageIndex: number, pageSize: number, searchBy: string, orderBy: string) {
     const params = new HttpParams()
       .set('pageIndex',pageIndex) 
       .set('pageSize',pageSize) 
@@ -23,6 +23,17 @@ export class AdminService {
     
     return this.http.get(this.baseURL+'api/Course/AdminCourses', {params})
   }
+
+  getUsersPages(pageIndex: number, pageSize: number, searchBy: string, orderBy: string) {
+    const params = new HttpParams()
+      .set('pageIndex',pageIndex) 
+      .set('pageSize',pageSize) 
+      .set('searchBy',searchBy) 
+      .set('orderBy',orderBy)
+    
+    return this.http.get(this.baseURL+'api/User', {params})
+  }
+
   deleteCourse(id: number) {
     return this.http.delete(this.baseURL+'CoursePage/Delete/'+id)
   }
