@@ -49,22 +49,16 @@
         <td mat-cell *matCellDef="let element">{{ element.name }}</td>
       </ng-container>
 
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+      </ng-container>
+
       <!-- courses created Column -->
       <ng-container matColumnDef="coursesCreated">
         <th mat-header-cell *matHeaderCellDef>Courses Created</th>
         <td mat-cell *matCellDef="let element">{{ element.coursesCreated }}</td>
-      </ng-container>
-
-      <!-- Bookmarks Column -->
-      <ng-container matColumnDef="bookmarks">
-        <th mat-header-cell *matHeaderCellDef># of Bookmarks</th>
-        <td mat-cell *matCellDef="let element">{{ element.numberOfBookmarks }}</td>
-      </ng-container>
-
-      <!-- Learning Column -->
-      <ng-container matColumnDef="learning">
-        <th mat-header-cell *matHeaderCellDef># of Learning</th>
-        <td mat-cell *matCellDef="let element">{{ element.numberOfLearning }}</td>
       </ng-container>
 
       <!-- Learning Column -->
@@ -98,3 +92,6 @@
     </div>
   </div>
 </section>
+<!-- <div class="text-center" *ngIf="isLoading">
+  <img src="assets\Spinner-1s-200px.svg" alt="Loading ...">
+</div> -->

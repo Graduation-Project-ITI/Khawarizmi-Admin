@@ -11,15 +11,14 @@ import { AdminService } from 'src/Services/AdminService/admin.service';
 export class UsersComponent implements OnInit {
   displayedColumns: string[] = [
     'name',
+    'email',
     'coursesCreated',
-    'bookmarks',
-    'learning',
     'removeUser',
   ];
   dataSource: any;
   searchByControl = new FormControl('');
   orderByControl = new FormControl('');
-
+  isLoading: boolean = true;
   pageSize: number = 8;
   pageIndex: number = 0;
   length: number = 0;
@@ -29,10 +28,12 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     // get the first chunk of data
-    this.getPage();
+      this.getPage();
   }
 
   handlePageEvent(e: PageEvent) {
+    console.log(e);
+
     this.pageIndex = e.pageIndex;
 
     // get the next or prev page
@@ -58,7 +59,7 @@ export class UsersComponent implements OnInit {
       .subscribe({
         next: (res: any) => {
           console.log(res);
-          
+          this.isLoading = false;
           this.dataSource = res.data;
           this.length = res.length;
         },
@@ -67,6 +68,10 @@ export class UsersComponent implements OnInit {
   }
 
   removeUser(id: string) {
-
+    this.adminService.deleteUser(id).subscribe({
+      next: (res) => {
+        this.dataSource = this.dataSource.filter((u: any) => u.id != id);
+      },
+    });
   }
 }

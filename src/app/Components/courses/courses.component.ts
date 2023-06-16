@@ -21,7 +21,7 @@ export class CoursesComponent implements OnInit {
   dataSource: any;
   orderByControl = new FormControl('');
   searchByControl = new FormControl('');
-
+  isLoading: boolean = true;
   pageSize: number = 8;
   pageIndex: number = 0;
   length: number = 0;
@@ -61,6 +61,7 @@ export class CoursesComponent implements OnInit {
       )
       .subscribe({
         next: (res: any) => {
+          this.isLoading = false;
           this.dataSource = res.data;
           this.length = res.length;
         },
