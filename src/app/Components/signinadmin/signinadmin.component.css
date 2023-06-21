@@ -1,0 +1,52 @@
+section{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+
+}
+.btncolor
+{
+    background-color: var(--color5);
+    color:white;
+}
+.row-line{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.sec1{
+    width: 35%;
+    box-shadow: 0px 2px 15px #cec2c2;
+    background-color: white;
+    border-radius: 3px;
+    padding: 0 0 20px 0;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    /* border-bottom: 2px solid rgb(237 236 236); */
+    padding: 25px 0px;
+    margin-bottom: 20px;
+}
+.logoImage{
+    width: 150px;
+}
+.line{
+    width: 100%;
+    border: 1px solid rgb(234 234 234);
+    padding: 0px;
+}
+form{
+    padding: 20px;
+}
+.btns-logn .btncolor{
+    width: 100%;
+    margin-top: 10px;
+}
+.btns-logn{
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-right: 20px;
+
+}

@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -7,8 +7,12 @@ import { Injectable } from '@angular/core';
 export class CoursesService {
 
   baseURL = 'https://e-learning-api-sc6i.onrender.com/'
-
-  constructor(private http:HttpClient) { }
+  headers:any;
+  constructor(private http:HttpClient) { 
+    this.headers = new HttpHeaders({
+      "Authorization" : "Bearer "+localStorage.getItem("token")
+    })
+  }
 
   // get paginated courses 
   getCourses(pageIndex: number, pageSize: number, searchBy: string, orderBy: string) {

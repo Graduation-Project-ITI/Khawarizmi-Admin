@@ -1,3 +1,10 @@
+#LogoutBtn{
+    padding: 30px;
+    background-color: rgba(208, 4, 4, 0.856);
+    color: white;
+    font-size: 30px;
+}
+
 .cardBox {
     position: relative;
     width: 100%;
