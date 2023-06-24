@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AdminService {
-  baseURL = 'https://e-learning-api-sc6i.onrender.com/'
+  baseURL = 'https://localhost:7249/'
 
   constructor(private http: HttpClient) {}
 
@@ -26,6 +26,8 @@ export class AdminService {
       .set('searchBy', searchBy)
       .set('orderBy', orderBy);
 
+
+    
     return this.http.get(this.baseURL + 'api/Course/AdminCourses', { params });
   }
 
