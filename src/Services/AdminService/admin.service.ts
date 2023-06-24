@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,9 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class AdminService {
   baseURL = 'https://localhost:7249/'
-
-  constructor(private http: HttpClient) {}
-
+  headers:any;
+  constructor(private http:HttpClient) {
+    this.headers = new HttpHeaders({
+      "Authorization" : "Bearer "+localStorage.getItem("token")
+    })
+  }
   getCardStatistics() {
     return;
   }
@@ -25,10 +28,8 @@ export class AdminService {
       .set('pageSize', pageSize)
       .set('searchBy', searchBy)
       .set('orderBy', orderBy);
-
-
     
-    return this.http.get(this.baseURL + 'api/Course/AdminCourses', { params });
+    return this.http.get(this.baseURL + 'api/Course/AdminCourses', { params ,headers: this.headers});
   }
 
   getUsersPages(
@@ -43,7 +44,7 @@ export class AdminService {
       .set('searchBy', searchBy)
       .set('orderBy', orderBy);
 
-    return this.http.get(this.baseURL + 'api/User', { params });
+    return this.http.get(this.baseURL + 'api/User', { params ,headers: this.headers});
   }
 
   deleteCourse(id: number) {
