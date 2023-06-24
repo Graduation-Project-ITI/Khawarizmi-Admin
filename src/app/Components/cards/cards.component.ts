@@ -29,9 +29,7 @@ creators:any;
   }
 
   logout(){
-    localStorage.removeItem("userName");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("token");
+    localStorage.clear()
     location.assign("/signin")
   }
 
