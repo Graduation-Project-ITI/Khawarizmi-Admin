@@ -1,14 +1,18 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
-
   baseURL = 'https://localhost:7249/'
 
-  constructor(private http:HttpClient) { }
+  headers:any;
+  constructor(private http:HttpClient) { 
+    this.headers = new HttpHeaders({
+      "Authorization" : "Bearer "+localStorage.getItem("token")
+    })
+  }
 
   // get paginated courses 
   getCourses(pageIndex: number, pageSize: number, searchBy: string, orderBy: string) {
