@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
-import { AdminService } from 'src/Services/AdminService/admin.service';
+import { AdminService } from 'src/app/Services/AdminService/admin.service';
 
 @Component({
   selector: 'app-users',

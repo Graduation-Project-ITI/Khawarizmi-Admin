@@ -60,7 +60,12 @@ export class SigninadminComponent {
               // Check if user is authenticated
               this.isAuthentication = this.authService.isLoggedIn();
 
-              Swal.fire('Done', 'Successfully logged in', 'success');
+              Swal.fire({
+                icon: 'success',
+                title: 'signed in successfully',
+                showConfirmButton: false,
+                timer: 1500
+              });
               window.location.href = 'http://localhost:4202/dashboard';
 
               // Redirect to home page if user is authenticated

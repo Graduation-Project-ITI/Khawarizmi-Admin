@@ -44,9 +44,6 @@ export class SignupadminComponent {
       : !this.signupForm.controls['password'].valid ? 'Invalid password format, password should be 8 - 16 (lowercase or uppercase)characters or digits' : '';
   }
 
-
-
-
   signUp() {
     try {
       const fd = new FormData();
@@ -62,7 +59,6 @@ export class SignupadminComponent {
           // handle success response
           console.log(response); // log the response to see what the server is actually returning
           Swal.fire({
-            position: 'top-end',
             icon: 'success',
             title: 'Signed up successfully',
             showConfirmButton: false,

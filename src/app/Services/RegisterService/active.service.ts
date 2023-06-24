@@ -7,19 +7,14 @@ import { Injectable } from '@angular/core';
 export class ActiveService {
 
   private BaseURL="https://localhost:7249/api";
-  // https://localhost:7249/api/Login/api/adminLogin
-  constructor( private http:HttpClient )
-  {
+  constructor( private http:HttpClient ) {
 
+  }
 
-   }
-
-   SignUp(Data:any)
-   {
+   SignUp(Data:any) {
      return this.http.post(`${this.BaseURL}/signup`,Data);
    }
-   Signin(Data:any)
-   {
+   Signin(Data:any) {
    return this.http.post(`${this.BaseURL}/Login/api/adminLogin`,Data);
    }
 
@@ -27,9 +22,7 @@ export class ActiveService {
     return localStorage.getItem('ngx-webstorage|token');
   }
 
-   removeToken(){
-    localStorage.removeItem('ngx-webstorage|token');
-    localStorage.removeItem("ngx-webstorage|username");
-    localStorage.removeItem("userId");
+   removeToken() {
+    localStorage.clear()
    }
 }
