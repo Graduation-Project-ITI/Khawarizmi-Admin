@@ -48,7 +48,7 @@ export class AdminService {
   }
 
   deleteCourse(id: number) {
-    return this.http.delete(this.baseURL + 'CoursePage/Delete/' + id);
+    return this.http.delete(this.baseURL + 'CoursePage/Delete/' + id, {headers: this.headers});
   }
 
   deleteUser(id: string): Observable<object> {
