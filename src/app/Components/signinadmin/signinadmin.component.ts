@@ -51,12 +51,6 @@ export class SigninadminComponent {
               this.sentToken = result;
               console.log(localStorage.getItem('token'));
 
-              // const decodedToken: any = jwt_decode(this.sentToken.token);
-              // const nameIdentifier = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
-              // console.log(decodedToken);
-              // console.log(nameIdentifier);
-              // console.log(localStorage.getItem('token'));
-
               // Check if user is authenticated
               this.isAuthentication = this.authService.isLoggedIn();
 
@@ -66,7 +60,7 @@ export class SigninadminComponent {
                 showConfirmButton: false,
                 timer: 1500
               });
-              window.location.href = 'http://localhost:4202/dashboard';
+              location.assign('/dashboard');
 
               // Redirect to home page if user is authenticated
               if (this.isAuthentication) {
@@ -83,21 +77,10 @@ export class SigninadminComponent {
                 title: 'Oops...',
                 text: 'UserName Or Password is incorrect!',
               });
-              console.log('not logged in');
-              console.log(error.message);
-              
-
-              console.log(error);
             }
         });
         } catch (error) {
           console.log(error);
         }
-      
-     //end subscribe
-
-    console.log(this.signupForm.get("name")?.value);
-    console.log(this.signupForm.get('password')?.value);
   }
-
 }

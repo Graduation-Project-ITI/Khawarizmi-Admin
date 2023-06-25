@@ -64,7 +64,7 @@ export class SignupadminComponent {
             showConfirmButton: false,
             timer: 1500
             
-          }).then(()=>window.location.href = 'http://localhost:4202/signin');
+          }).then(()=> location.assign('/signin'));
 
 
         },

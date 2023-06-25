@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CoursesService {
-  baseURL = 'https://localhost:7249/'
+  baseURL = 'https://e-learning-api-sc6i.onrender.com/'
 
   headers:any;
   constructor(private http:HttpClient) { 
