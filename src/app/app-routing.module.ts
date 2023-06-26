@@ -8,16 +8,13 @@ import { SigninadminComponent } from './Components/signinadmin/signinadmin.compo
 import { SignupadminComponent } from './Components/signupadmin/signupadmin.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { ErrorComponent } from './Components/error/error.component';
+import { YGuard } from './Services/y.guard';
 
 const routes: Routes = [
-  //{path: 'cards', component: CardsComponent},
-  //{path: 'navbar', component: NavbarComponent},
-  //{path: 'users', component: UsersComponent},
-  //{path: 'courses', component: CoursesComponent},
   {path:'',component:SigninadminComponent},
   {path:'signin',component:SigninadminComponent},
   {path:'signup',component:SignupadminComponent},
-  {path:'dashboard', component: DashboardComponent},
+  {path:'dashboard', component: DashboardComponent, canActivate: [YGuard]},
   {path:'**', component: ErrorComponent},
 ];
 

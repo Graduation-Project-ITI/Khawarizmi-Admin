@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActiveService } from 'src/app/Services/RegisterService/active.service';
@@ -10,8 +10,9 @@ import Swal from 'sweetalert2';
   templateUrl: './signupadmin.component.html',
   styleUrls: ['./signupadmin.component.css']
 })
-export class SignupadminComponent {
+export class SignupadminComponent implements OnInit{
   successMessage: any;
+  isAuthenticated:any;
 
   constructor(private formBulider: FormBuilder, private myservice: ActiveService, private router:Router) {
     this.signupForm = this.formBulider.group({
@@ -22,6 +23,9 @@ export class SignupadminComponent {
     })
 
 
+  }
+  ngOnInit(): void {
+    this.isAuthenticated = localStorage.getItem("token");
   }
 
   signupForm: FormGroup;
@@ -62,12 +66,11 @@ export class SignupadminComponent {
           // handle success response
           console.log(response); // log the response to see what the server is actually returning
           Swal.fire({
-            position: 'top-end',
             icon: 'success',
             title: 'Signed up successfully',
             showConfirmButton: false,
             timer: 1500
-            
+
           }).then(()=>window.location.href = 'http://localhost:4202/signin');
 
 

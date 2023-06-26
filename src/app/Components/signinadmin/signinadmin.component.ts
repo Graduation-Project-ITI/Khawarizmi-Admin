@@ -40,7 +40,7 @@ export class SigninadminComponent {
 
   signUp() {
         console.log(this.signupForm.value);
-        
+
         try {
           this.authService.Signin(this.signupForm.value).subscribe({
             next:(result: any) => {
@@ -50,12 +50,6 @@ export class SigninadminComponent {
               localStorage.setItem("userId", result.userId);
               this.sentToken = result;
               console.log(localStorage.getItem('token'));
-
-              // const decodedToken: any = jwt_decode(this.sentToken.token);
-              // const nameIdentifier = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
-              // console.log(decodedToken);
-              // console.log(nameIdentifier);
-              // console.log(localStorage.getItem('token'));
 
               // Check if user is authenticated
               this.isAuthentication = this.authService.isLoggedIn();
@@ -80,7 +74,7 @@ export class SigninadminComponent {
               });
               console.log('not logged in');
               console.log(error.message);
-              
+
 
               console.log(error);
             }
@@ -88,7 +82,7 @@ export class SigninadminComponent {
         } catch (error) {
           console.log(error);
         }
-      
+
      //end subscribe
 
     console.log(this.signupForm.get("name")?.value);
